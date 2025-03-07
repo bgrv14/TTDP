@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-jost;
+  }
+
+  body {
+    @apply min-h-screen bg-gray-600 text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  p {
+    @apply font-normal;
+  }
+}
+
+@layer components {
+  .text-h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+
+  .text-h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  .text-h3 {
+    @apply text-xl md:text-2xl lg:text-3xl font-bold;
+  }
+
+  .text-h4 {
+    @apply text-lg md:text-xl lg:text-2xl font-bold;
+  }
+
+  .btn {
+    @apply px-4 md:px-5 py-2 rounded-full font-medium transition-all duration-300 text-sm md:text-base;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-black hover:bg-gray-300;
+  }
+
+  .btn-outline {
+    @apply border border-black text-black hover:bg-black hover:text-white;
+  }
+
+  .btn-outline-white {
+    @apply border border-white text-white hover:bg-white hover:text-black;
+  }
+
+  .btn-disabled {
+    @apply bg-gray-200 text-gray-400 cursor-not-allowed;
+  }
+
+  .pricing-card {
+    @apply w-full md:w-[342px] h-auto md:h-[576px] bg-[#E2E6EE] text-black p-4 md:p-6 rounded-[20px] md:rounded-[40px] transition-all duration-300;
+  }
+
+  .pricing-card:hover {
+    @apply md:w-[358px] md:h-[602px] text-white transform md:scale-105 bg-gradient-to-b from-[#070707] to-[#1D1D1D];
+  }
+
+  .pricing-card:hover button {
+    @apply border-white text-white hover:bg-gray-900 hover:text-black;
+  }
+
+  .pricing-card:hover .text-gray-500 {
+    @apply text-gray-400;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto px-4;
+  }
+
+  .container-full {
+    @apply w-full;
+  }
+
+  .container-default {
+    @apply w-full px-4 mx-auto md:px-6 lg:w-[1064px];
+  }
+
+  .container-header {
+    @apply w-full px-4 mx-auto md:px-6 lg:max-w-[1440px];
+  }
+
+  .container-pricing {
+    @apply w-full px-4 mx-auto md:px-6 lg:max-w-[1440px];
+  }
+
+  .container-footer {
+    @apply max-w-[1440px] mx-auto px-4;
+  }
+
+  .hero-background {
+    @apply absolute inset-0 bg-cover bg-center bg-no-repeat;
+    background-image: url("/images/background.png");
+  }
+
+  .benefits-card {
+    @apply bg-gradient-to-r from-gray-600 to-gray-900/90 rounded-[40px] p-6;
+  }
+}
