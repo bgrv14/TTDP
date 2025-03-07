@@ -79,7 +79,7 @@ export const CourseProgram: React.FC = () => {
     );
   };
 
-  const { title, description, image, tags } = courseSections[currentIndex];
+  const currentSection = courseSections[currentIndex];
 
   return (
     <section className="py-10 md:py-20 bg-white">
@@ -101,10 +101,9 @@ export const CourseProgram: React.FC = () => {
             {/* Контент */}
             <div className="flex flex-col items-center text-center px-4">
               <div className="bg-white rounded-[20px] p-6 border-2 border-black w-full mb-4 text-black">
-                <h3 className="text-[24px] leading-[120%] font-bold mb-4 text-black">Web Development</h3>
+                <h3 className="text-[24px] leading-[120%] font-bold mb-4 text-black">{currentSection.title}</h3>
                 <p className="text-[14px] leading-[150%] text-black/80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  Neque repellendus minima reiciendis nobis dolore obcaecati.
+                  {currentSection.description}
                 </p>
               </div>
 
@@ -124,12 +123,9 @@ export const CourseProgram: React.FC = () => {
 
               {/* Теги */}
               <div className="flex flex-wrap justify-center gap-2 mt-8">
-                <span className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">Web Development</span>
-                <span className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">Digital Marketing</span>
-                <span className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">SaaS Products</span>
-                <span className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">Apps Development</span>
-                <span className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">SEO Services</span>
-                <span className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">Data Analysis</span>
+                {currentSection.tags.map((tag, index) => (
+                  <span key={index} className="px-4 py-2 text-black rounded-full btn btn-outline text-[14px]">{tag}</span>
+                ))}
               </div>
             </div>
           </div>
@@ -143,8 +139,8 @@ export const CourseProgram: React.FC = () => {
                 {/* Зображення */}
                 <div className="h-[482px] flex items-center">
                   <img 
-                    src="/images/7.png"
-                    alt="Course Program"
+                    src={currentSection.image}
+                    alt={currentSection.title}
                     className="w-[340px] h-[482px] object-cover rounded-2xl shadow-sm"
                   />
                 </div>
@@ -153,9 +149,9 @@ export const CourseProgram: React.FC = () => {
                 <div className="flex-1 flex flex-col justify-between p-5">
                   <div>
                     <div className="bg-gray-800 rounded-2xl p-6 mb-8 w-fit border-2 border-black shadow-[0px_4px_0px_4px_#000000]">
-                      <h3 className="text-h3 text-black m-6 ">Web Development</h3>
+                      <h3 className="text-h3 text-black m-6 ">{currentSection.title}</h3>
                       <p className="text-gray-500 px-8 mb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque repellendus minima reiciendis nobis dolore obcaecati.
+                        {currentSection.description}
                       </p>
                     </div>
 
@@ -177,12 +173,9 @@ export const CourseProgram: React.FC = () => {
                     {/* Теги */}
                     <div>
                       <div className="flex flex-wrap gap-3 justify-center mt-12">
-                        <span className="px-4 py-2 text-black rounded-full btn btn-outline ">Web Development</span>
-                        <span className="px-4 py-2 text-black rounded-full btn btn-outline">Digital Marketing</span>
-                        <span className="px-4 py-2 text-black rounded-full btn btn-outline">SaaS Products</span>
-                        <span className="px-4 py-2 text-black rounded-full btn btn-outline">Apps Development</span>
-                        <span className="px-4 py-2 text-black rounded-full btn btn-outline">SEO Services</span>
-                        <span className="px-4 py-2 text-black rounded-full btn btn-outline">Data Analysis</span>
+                        {currentSection.tags.map((tag, index) => (
+                          <span key={index} className="px-4 py-2 text-black rounded-full btn btn-outline">{tag}</span>
+                        ))}
                       </div>
                     </div>
                   </div>
